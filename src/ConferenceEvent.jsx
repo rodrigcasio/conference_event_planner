@@ -168,6 +168,13 @@ const ConferenceEvent = () => {
                                       <div className="img">
                                         <img src={item.img} alt={item.name} />
                                       </div>
+                                      <div className="text"> {item.name}</div>
+                                      <div> ${item.cost}</div>
+                                        <div className="addons_btn">
+                                          <button className="btn-warning" onClick={() => handleDecrementAvQuantity(index)}> &ndash; </button>
+                                          <span className="quantity-value">{item.quantity}</span>
+                                            <button className=" btn-success" onClick={() => handleIncrementAvQuantity(index)}> &#43; </button>
+                                        </div>
                                     </div>
                                   ))}    
                                 </div>
