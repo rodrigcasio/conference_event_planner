@@ -40,14 +40,16 @@ const ConferenceEvent = () => {
       }
     };
     
+    // av:
     const handleIncrementAvQuantity = (index) => {
       dispatch(incrementAvQuantity(index));
     };
-
+    // av:
     const handleDecrementAvQuantity = (index) => {
       dispatch(decrementAvQuantity(index));
     };
 
+    // meals:
     const handleMealSelection = (index) => {
       const item = mealsItems[index];
       if(item.selected && item.type === 'mealForPeople'){
@@ -77,6 +79,12 @@ const ConferenceEvent = () => {
           avItems.forEach((item) => {
             totalCost += item.cost * item.quantity;
           });
+        }else if(section == "meals"){
+          mealsItems.forEach((item) => {
+            if(item.selected){
+              totalCost += item.cost * numberOfPeople;      // if item is selected, its cost is multiplied by the numberOfPeople
+            }
+          });
         }
 
         return totalCost;
@@ -84,9 +92,13 @@ const ConferenceEvent = () => {
     
     // venue:
     const venueTotalCost = calculateTotalCost("venue");
+
     // av:
     const avTotalCost = calculateTotalCost("av");
-
+    
+    // meals:
+    const mealsTotalCost = calculateTotalCost("meals");
+    
 
     const navigateToProducts = (idType) => {
         if (idType == '#venue' || idType == '#addons' || idType == '#meals') {
