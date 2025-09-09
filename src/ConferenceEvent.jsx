@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import "./ConferenceEvent.css";
 import TotalCost from "./TotalCost";
 import { useSelector, useDispatch } from "react-redux";
@@ -99,7 +99,6 @@ const ConferenceEvent = () => {
     // meals:
     const mealsTotalCost = calculateTotalCost("meals");
     
-
     const navigateToProducts = (idType) => {
         if (idType == '#venue' || idType == '#addons' || idType == '#meals') {
           if (showItems) { // Check if showItems is false
@@ -107,6 +106,13 @@ const ConferenceEvent = () => {
           }
         }
       }
+
+    // object that include the all three subtotals in the totalcost 
+    const totalCosts = {
+      venue: venueTotalCost,
+      av: avTotalCost,
+      meals: mealsTotalCost,
+    };
 
     return (
         <>
@@ -251,7 +257,6 @@ const ConferenceEvent = () => {
 
                                 </div>
                                 <div className="total_cost">Total Cost: {mealsTotalCost}</div>
-
 
                             </div>
                         </div>
