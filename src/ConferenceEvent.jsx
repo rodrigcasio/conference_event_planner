@@ -17,6 +17,10 @@ const ConferenceEvent = () => {
     // av:
     const avItems = useSelector((state) => state.av);
     
+    // meals:
+    const mealsItems = useSelector((state) => state.meals);
+
+
     const handleToggleItems = () => {
         console.log("handleToggleItems called");
         setShowItems(!showItems);
