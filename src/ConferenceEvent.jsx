@@ -10,12 +10,11 @@ const ConferenceEvent = () => {
     
     // venue:
     const venueItems = useSelector((state) => state.venue);
-    const dispatch = useDispatch();
+    const dispatch = useDispatch();    // used by all slices 
     const remainingAuditoriumQuantity = 3 - venueItems.find(item => item.name === "Auditorium Hall (Capacity:200)").quantity;
     
     // av:
     const avItems = useSelector((state) => state.av);
-
     
     const handleToggleItems = () => {
         console.log("handleToggleItems called");
@@ -35,9 +34,11 @@ const ConferenceEvent = () => {
         }
       };
     const handleIncrementAvQuantity = (index) => {
+      dispatch(incrementAvQuantity(index));
     };
 
     const handleDecrementAvQuantity = (index) => {
+      dispatch(decrementAvQuantity(index));
     };
 
     const handleMealSelection = (index) => {
