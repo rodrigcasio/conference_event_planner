@@ -321,3 +321,15 @@ const ConferenceEvent = () => {
 };
 
 export default ConferenceEvent;
+
+/*
+  tip added from copilot suggestions
+  TIP: For optimal code quality and easier debugging,
+  consider adding PropTypes to validate component props.
+  Example:
+    import PropTypes from 'prop-types';
+    MyComponent.propTypes = {
+      items: PropTypes.array.isRequired,
+    };
+  This helps catch bugs early and documents expected prop types.
+*/
