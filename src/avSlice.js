@@ -1,6 +1,7 @@
 import { createSlice } from "@reduxjs/toolkit";
 import '../public/imgsFinalPractice';
-// 1. adding objects to provide data structure
+// 1. adding objects to provide data structure  
+// 2. create logic for incrementAvQuantity() and decrementAvQuantity() functions
 
 export const avSlice = createSlice({
   name: "av",
@@ -39,13 +40,21 @@ export const avSlice = createSlice({
   ],
 
 
-  reducers: {
+  reducers: {     // reducer functions:
+
     incrementAvQuantity: (state, action) => {
-      
+      const item = state[action.payload];
+      if(item){
+        item.quantity++;
+      }     
     },
     decrementAvQuantity: (state, action) => {
-     
+      const item = state[action.payload];
+      if(item && item.quantity > 0){
+        item.quantity--;
+      }
     },
+
   },
 });
 
