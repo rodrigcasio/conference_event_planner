@@ -61,7 +61,12 @@ const ConferenceEvent = () => {
           venueItems.forEach((item) => {
             totalCost += item.cost * item.quantity;
           });
+        }else if(section === "av"){          // adding the costs of the data from the av items 
+          avItems.forEach((item) => {
+            totalCost += item.cost * item.quantity;
+          });
         }
+
         return totalCost;
       };
     const venueTotalCost = calculateTotalCost("venue");
