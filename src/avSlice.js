@@ -2,7 +2,7 @@ import { createSlice } from "@reduxjs/toolkit";
 import '../public/imgsFinalPractice';
 // 1. adding objects to provide data structure  
 // 2. create logic for incrementAvQuantity() and decrementAvQuantity() functions
-
+// 3. export all reducer functions and actions (ln-61 and ln-63)
 export const avSlice = createSlice({
   name: "av",
   initialState: [
