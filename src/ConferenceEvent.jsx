@@ -3,12 +3,18 @@ import "./ConferenceEvent.css";
 import TotalCost from "./TotalCost";
 import { useSelector, useDispatch } from "react-redux";
 import { incrementQuantity, decrementQuantity } from "./venueSlice";
+
 const ConferenceEvent = () => {
     const [showItems, setShowItems] = useState(false);
     const [numberOfPeople, setNumberOfPeople] = useState(1);
+    
+    // venue:
     const venueItems = useSelector((state) => state.venue);
     const dispatch = useDispatch();
     const remainingAuditoriumQuantity = 3 - venueItems.find(item => item.name === "Auditorium Hall (Capacity:200)").quantity;
+    
+    // av:
+    const avItems = useSelector((state) => state.av);
 
     
     const handleToggleItems = () => {
@@ -157,7 +163,7 @@ const ConferenceEvent = () => {
 
                                 </div>
                                 <div className="addons_selection">
-
+                                      
                                 </div>
                                 <div className="total_cost">Total Cost:</div>
 
